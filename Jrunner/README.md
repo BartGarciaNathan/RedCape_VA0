@@ -26,6 +26,7 @@ Select : SOF DATA  and Add File ( Here its necessary to select the .sof file of 
 Then just click Generate, the RBF file should be ready.
 
 Now we need to obtain an .cdf file that will tell Jrunner some information about the FPGA and the RBF. The easiest way to do this is to open the “cog_profiler.cdf” file and modify the name file accordingly. The file contains the next text :
+```
 
 /* Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version */
 
@@ -52,6 +53,7 @@ AlteraBegin;
 	ChainType(JTAG);
 
 AlteraEnd;
+```
 
 It is necessary to modify the File value, so change “file.rbf” for the name given to the RBF in the Altera Convert Programming File. Its maybe simpler to have a .cdf file for each RBF file, so its a good idea to save the .cdf file with the same name as the .rbf file to which is pointing. 
 
@@ -67,11 +69,11 @@ Step 3 -  Calling jrunner from command line.
 
 After obtaining the files from the Github Repository, its necessary to give the right permissions to the jrunner file. To do so :
 
-$chmode +x jrunner
+	$chmod +x jrunner
 
 
 With the right permissions now we can execute the file. So the usage for configuring the Cyclone V FPGA is :
 
-$./jrunner redcapea0_demo.cdf 
+	$./jrunner redcapea0_demo.cdf 
 
 To configure the demo project. To use it for another project just type the name of the .cdf file needed.
